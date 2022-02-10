@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>location test</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>location test</h1>
+    <button style="width:5rem; height: 5rem; margin-left: 5rem;" type="button" onclick="dot()" id="btn1">Start</button>
+    <h2 id="space"></h2>
+    <p id="tet"></p>
+    <script crossorigin="anonymous">
+        function successFunction(position) {
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+            alert('Your latitude is :'+lat+' and longitude is '+long);
+        }
+        function errorFunction(error) {
+            alert("error"+error.code);
+        }
+        function dot() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+            } else {
+                alert('location settings not done');
+            }
+        }
+    </script>
+</body>
+</html>
